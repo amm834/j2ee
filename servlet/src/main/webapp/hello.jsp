@@ -1,13 +1,26 @@
+<%@ page import="me.aungmyatmoe.servlet.User" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Hello JSP</title>
-</head>
-<body>
+<%@ include file="layout/header.jsp" %>
 <%
     var name = request.getAttribute("name").toString();
 %>
 
 Hello <%= name %>
-</body>
-</html>
+
+<%
+    var users = (ArrayList<User>) session.getAttribute("users");
+%>
+
+<% for (var user : users) { %>
+<p><%= user.getId() %> - <%= user.getName() %>
+</p>
+<% } %>
+
+<hr>
+
+
+<%= session.getAttribute("name") %>
+
+
+<%@ include file="layout/footer.jsp" %>
