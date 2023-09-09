@@ -14,5 +14,8 @@
 Get name
 <br>
 My name is <%= request.getParameter("name")%>
+<hr/>
+
+<a href="${pageContext.request.contextPath}/hello-servlet?name=Ma Ma">Go to hello servlet</a>
 </body>
 </html>

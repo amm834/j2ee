@@ -4,6 +4,10 @@
     <title>Hello JSP</title>
 </head>
 <body>
-<h1>Servlet ayy</h1>
+<%
+    var name = request.getAttribute("name").toString();
+%>
+
+Hello <%= name %>
 </body>
 </html>

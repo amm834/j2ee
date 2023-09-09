@@ -10,13 +10,14 @@ import jakarta.servlet.annotation.*;
 public class HelloServlet extends HttpServlet {
     private String message;
 
-    public void init() {
-        message = "Hello World!";
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
-        request.getRequestDispatcher("/hello.jsp").forward(request,response);
+
+        var name = request.getParameter("name");
+
+        request.setAttribute("name", name);
+        request.getRequestDispatcher("/hello.jsp")
+                .forward(request, response);
     }
 
     public void destroy() {
